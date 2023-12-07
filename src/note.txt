@@ -1,0 +1,37 @@
+useEffect is a hook in React that allows functional components to perform side effects. 
+Side effects in React typically include data fetching, subscriptions, manually changing the DOM,
+or any other operation that doesn't directly involve updating the component's state or rendering.
+
+The useEffect hook takes a function as its argument, and this function is executed after the 
+component has rendered. 
+
+
+
+
+useEffect(() => {
+
+  // Side effect code
+
+}, [dependencies]);
+
+
+
+The first argument is the function containing the side effect code.
+The second argument is an array of dependencies. If any of the dependencies change between renders, 
+the effect will be re-run. If the array is empty ([]), the effect runs only once when the component mounts.
+
+// data fetching example
+
+useEffect(() => {
+
+  // Fetch data from an API
+  axios.get('https://example.com/api/data')
+    .then(response => {
+      // Handle the data
+    })
+    .catch(error => {
+      // Handle errors
+    });
+    
+}, []);
+
